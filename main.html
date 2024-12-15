@@ -17,16 +17,14 @@
     .container {
       display: flex;
       gap: 5px;
-      cursor: grab;
     }
     .cube {
       width: 50px;
       height: 50px;
       background-color: #3498db;
       display: inline-block;
-      transition: background-color 0.3s ease;
     }
-    .cube.active {
+    .cube:active {
       background-color: #e74c3c;
     }
   </style>
@@ -39,38 +37,6 @@
     <div class="cube"></div>
     <div class="cube"></div>
   </div>
-
-  <script>
-    const container = document.querySelector('.container');
-    const cubes = document.querySelectorAll('.cube');
-
-    let isDragging = false;
-
-    container.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      handleMouseOver(e);
-    });
-
-    container.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        handleMouseOver(e);
-      }
-    });
-
-    container.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
-    container.addEventListener('mouseleave', () => {
-      isDragging = false;
-    });
-
-    function handleMouseOver(event) {
-      const target = event.target;
-      if (target.classList.contains('cube')) {
-        target.classList.add('active');
-      }
-    }
-  </script>
 </body>
 </html>
+
